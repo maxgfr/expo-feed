@@ -1,4 +1,4 @@
-# expo-api
+# expo-feed
 
 Application which displays different contents in a feed for a user
 
