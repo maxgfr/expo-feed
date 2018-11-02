@@ -8,7 +8,22 @@ import {
 import { Container, Content, Icon } from 'native-base'
 import CardComponent from './components/CardComponent'
 
+import { Audio } from 'expo'
+
 export default class App extends React.Component {
+
+  async componentDidMount() {
+        await Audio.setAudioModeAsync({
+            playsInSilentModeIOS: true,
+            allowsRecordingIOS: true,
+            interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+            shouldDuckAndroid: false,
+            interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+            playThroughEarpieceAndroid: true
+        })
+        this.setState({loaded: true })
+    }
+
 
   render() {
     return(
