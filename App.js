@@ -34,7 +34,9 @@ export default class App extends React.Component {
              <CardComponent thumbnail={require("./assets/me.jpeg")} twitch_videos={true} id_twitch_video="329825601" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
              <CardComponent thumbnail={require("./assets/me.jpeg")} twitch_clips={true} id_twitch_clip="LongDrabPelicanCurseLit" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
              <CardComponent thumbnail={require("./assets/me.jpeg")} twitch_collections={true} id_twitch_video="329031576" id_twitch_collection="y9LXlzpDYhU6yw" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
-          </Content>
+             <CardComponent thumbnail={require("./assets/me.jpeg")} instagram={true} id_instagram_post="BmOsCfqBqlt" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
+
+        </Content>
       </Container>
     );
 

@@ -81,6 +81,17 @@ class CardComponent extends Component {
                   : null
                 }
 
+                { this.props.instagram ?
+                    <WebView
+                      javaScriptEnabled={true}
+                      scalesPageToFit
+                      domStorageEnabled={true}
+                      mediaPlaybackRequiresUserAction={false}
+                      source={{uri: 'https://www.instagram.com/p/'+this.props.id_instagram_post}}
+                    />
+                  : null
+                }
+
                 </CardItem>
                 <CardItem style={{ height: 30 }}>
                     <Left>
