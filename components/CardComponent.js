@@ -26,13 +26,61 @@ class CardComponent extends Component {
                     </Left>
                 </CardItem>
                 <CardItem style={{ height: 300 }}>
+                { this.props.youtube ?
+                  <WebView
+                    javaScriptEnabled={true}
+                    scalesPageToFit
+                    domStorageEnabled={true}
+                    mediaPlaybackRequiresUserAction={false}
+                    source={{uri: 'https://www.youtube.com/embed/'+this.props.id_youtube}}
+                  />
+                  : null
+                }
+
+                { this.props.twitch_live ?
                     <WebView
                       javaScriptEnabled={true}
                       scalesPageToFit
                       domStorageEnabled={true}
                       mediaPlaybackRequiresUserAction={false}
-                      source={{uri: 'https://www.youtube.com/embed/'+this.props.id_youtube}}
+                      source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&channel='+this.props.chaine_twitch}}
                     />
+                  : null
+                }
+
+                { this.props.twitch_videos ?
+                  <WebView
+                    javaScriptEnabled={true}
+                    scalesPageToFit
+                    domStorageEnabled={true}
+                    mediaPlaybackRequiresUserAction={false}
+                    source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection=&time='}}
+                  />
+                  : null
+                }
+
+                { this.props.twitch_clips ?
+                    <WebView
+                      javaScriptEnabled={true}
+                      scalesPageToFit
+                      domStorageEnabled={true}
+                      mediaPlaybackRequiresUserAction={false}
+                      source={{uri: 'https://clips.twitch.tv/embed?volume=0.5&!muted&!autoplay&clip='+this.props.id_twitch_clip}}
+                    />
+                  : null
+                }
+
+                { this.props.twitch_collections ?
+                    <WebView
+                      javaScriptEnabled={true}
+                      scalesPageToFit
+                      domStorageEnabled={true}
+                      mediaPlaybackRequiresUserAction={false}
+                      source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection='+this.props.id_twitch_collection+'&time='}}
+                    />
+                  : null
+                }
+
                 </CardItem>
                 <CardItem style={{ height: 30 }}>
                     <Left>
