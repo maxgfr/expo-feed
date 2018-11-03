@@ -15,7 +15,6 @@ class CardComponent extends Component {
 
 
     render() {
-      let yourAlert = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script>'
         return (
             <Card style={styles.container}>
                 <CardItem>
