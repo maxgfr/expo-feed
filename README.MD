@@ -20,8 +20,11 @@ It uses embed functionality combined with `WebView` from `react-native`
 ## Application :
 
 <div align="center">
-    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture1.png" height="540" width="280"/>
-    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture2.png" height="540" width="280"/>
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture3.png" height="540" width="280"/>
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture4.png" height="540" width="280"/>
+</div>
+
+<div align="center">
     <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture3.png" height="540" width="280"/>
     <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture4.png" height="540" width="280"/>
 </div>
