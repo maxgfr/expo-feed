@@ -15,6 +15,7 @@ class CardComponent extends Component {
 
 
     render() {
+      let yourAlert = '<script async defer src="//assets.pinterest.com/js/pinit.js"></script>'
         return (
             <Card style={styles.container}>
                 <CardItem>
@@ -107,7 +108,6 @@ class CardComponent extends Component {
                   <WebView
                     originWhitelist={['*']}
                     javaScriptEnabled={true}
-                    ref={this.props.id_instagram_post}
                     onShouldStartLoadWithRequest = {(event) => {
                         if (event.url !== 'https://www.instagram.com/p/'+this.props.id_instagram_post+'/embed/captioned/') {
                             return false;
@@ -116,6 +116,54 @@ class CardComponent extends Component {
                         }
                     }}
                     source={{uri: 'https://www.instagram.com/p/'+this.props.id_instagram_post+'/embed/captioned/'}}
+                  />
+                  : null
+                }
+
+                { this.props.spotify_album ?
+                  <WebView
+                    originWhitelist={['*']}
+                    javaScriptEnabled={true}
+                    source={{ uri: 'https://open.spotify.com/embed/album/'+this.props.id_spotify }}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://open.spotify.com/embed/album/'+this.props.id_spotify) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
+                  />
+                  : null
+                }
+
+                { this.props.spotify_playlist ?
+                  <WebView
+                    originWhitelist={['*']}
+                    javaScriptEnabled={true}
+                    source={{ uri: 'https://open.spotify.com/embed/user/'+this.props.id_user+'/playlist/'+this.props.id_spotify }}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://open.spotify.com/embed/user/'+this.props.id_user+'/playlist/'+this.props.id_spotify) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
+                  />
+                  : null
+                }
+
+                { this.props.spotify_song ?
+                  <WebView
+                    originWhitelist={['*']}
+                    javaScriptEnabled={true}
+                    source={{ uri: 'https://open.spotify.com/embed/track/'+this.props.id_spotify }}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://open.spotify.com/embed/track/'+this.props.id_spotify) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
                   />
                   : null
                 }

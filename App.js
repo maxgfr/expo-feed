@@ -36,6 +36,9 @@ export default class App extends React.Component {
              <CardComponent thumbnail={require("./assets/me.jpeg")} twitch_clips={true} id_twitch_clip="LongDrabPelicanCurseLit" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
              <CardComponent thumbnail={require("./assets/me.jpeg")} twitch_collections={true} id_twitch_video="329031576" id_twitch_collection="y9LXlzpDYhU6yw" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
              <CardComponent thumbnail={require("./assets/me.jpeg")} instagram={true} id_instagram_post="Bpmrcm7HgQW" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
+             <CardComponent thumbnail={require("./assets/me.jpeg")} spotify_album={true} id_spotify="1zNr37qd3iZJ899byrTkcj" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
+             <CardComponent thumbnail={require("./assets/me.jpeg")} spotify_playlist={true} id_user="2c8a6esgmr19imm8bl14570vk" id_spotify="2280Pf3U69Rp6CdVpxzSNr" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
+             <CardComponent thumbnail={require("./assets/me.jpeg")} spotify_song={true} id_spotify="4GXl8l1MfZPf2GvpyRPJBf" likes="11" nb_commentaires="202" pseudo="maxgfr" date="01/01/2018" description="blablablabla"/>
         </Content>
       </Container>
     );
