@@ -1,15 +1,27 @@
 # expo-feed
 
-Application which displays different contents in a feed for a user
+Application which displays social media contents stemming from :
+- Youtube
+- Twitch
+- Spotify
+- Instagram
+
+It uses embed functionality combined with `WebView` from `react-native`
 
 ## Run the project
 
 ```
     git clone https://github.com/maxgfr/expo-feed.git
     cd expo-feed
-    mv .env.example .env  # set your own credentials
     npm install
     expo start
 ```
 
 ## Application :
+
+<div align="center">
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture1.png" height="540" width="280"/>
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture2.png" height="540" width="280"/>
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture3.png" height="540" width="280"/>
+    <img src="https://github.com/maxgfr/expo-feed/blob/master/.github/capture4.png" height="540" width="280"/>
+</div>

@@ -9,10 +9,18 @@ import {
     Linking
 } from "react-native";
 
-import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base'
+import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
+
+import { Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
+
+const guidelineBaseWidth = 350;
+const guidelineBaseHeight = 680;
+
+const scale = size => (width / guidelineBaseWidth) * size;
 
 class CardComponent extends Component {
-
 
     render() {
         return (
@@ -26,7 +34,7 @@ class CardComponent extends Component {
                         </Body>
                     </Left>
                 </CardItem>
-                <CardItem style={{ height: this.props.instagram ? 420 : 300 }}>
+                <CardItem style={{ height: this.props.instagram ? scale(420) : scale(300) }}>
                 { this.props.youtube ?
                   <WebView
                     javaScriptEnabled={true}
