@@ -5,15 +5,16 @@ import {
     StyleSheet,
     Image,
     WebView,
-    Platform
+    Platform,
+    Linking
 } from "react-native";
 
 import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base'
 
 class CardComponent extends Component {
 
-    render() {
 
+    render() {
         return (
             <Card style={styles.container}>
                 <CardItem>
@@ -25,13 +26,17 @@ class CardComponent extends Component {
                         </Body>
                     </Left>
                 </CardItem>
-                <CardItem style={{ height: 300 }}>
+                <CardItem style={{ height: this.props.instagram ? 420 : 300 }}>
                 { this.props.youtube ?
                   <WebView
                     javaScriptEnabled={true}
-                    scalesPageToFit
-                    domStorageEnabled={true}
-                    mediaPlaybackRequiresUserAction={false}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://www.youtube.com/embed/'+this.props.id_youtube) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
                     source={{uri: 'https://www.youtube.com/embed/'+this.props.id_youtube}}
                   />
                   : null
@@ -40,9 +45,13 @@ class CardComponent extends Component {
                 { this.props.twitch_live ?
                     <WebView
                       javaScriptEnabled={true}
-                      scalesPageToFit
-                      domStorageEnabled={true}
-                      mediaPlaybackRequiresUserAction={false}
+                      onShouldStartLoadWithRequest = {(event) => {
+                          if (event.url !== 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&channel='+this.props.chaine_twitch) {
+                              return false;
+                          } else {
+                              return true;
+                          }
+                      }}
                       source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&channel='+this.props.chaine_twitch}}
                     />
                   : null
@@ -51,9 +60,13 @@ class CardComponent extends Component {
                 { this.props.twitch_videos ?
                   <WebView
                     javaScriptEnabled={true}
-                    scalesPageToFit
-                    domStorageEnabled={true}
-                    mediaPlaybackRequiresUserAction={false}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection=&time=') {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
                     source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection=&time='}}
                   />
                   : null
@@ -62,9 +75,14 @@ class CardComponent extends Component {
                 { this.props.twitch_clips ?
                     <WebView
                       javaScriptEnabled={true}
-                      scalesPageToFit
-                      domStorageEnabled={true}
-                      mediaPlaybackRequiresUserAction={false}
+                      ref={(ref) => { this.videoPlayer = ref;}}
+                      onShouldStartLoadWithRequest = {(event) => {
+                          if (event.url !== 'https://clips.twitch.tv/embed?volume=0.5&!muted&!autoplay&clip='+this.props.id_twitch_clip) {
+                              return false;
+                          } else {
+                              return true;
+                          }
+                      }}
                       source={{uri: 'https://clips.twitch.tv/embed?volume=0.5&!muted&!autoplay&clip='+this.props.id_twitch_clip}}
                     />
                   : null
@@ -73,22 +91,32 @@ class CardComponent extends Component {
                 { this.props.twitch_collections ?
                     <WebView
                       javaScriptEnabled={true}
-                      scalesPageToFit
-                      domStorageEnabled={true}
-                      mediaPlaybackRequiresUserAction={false}
+                      onShouldStartLoadWithRequest = {(event) => {
+                          if (event.url !== 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection='+this.props.id_twitch_collection+'&time=') {
+                              return false;
+                          } else {
+                              return true;
+                          }
+                      }}
                       source={{uri: 'https://player.twitch.tv/?volume=0.5&!muted&!autoplay&video=v'+this.props.id_twitch_video+'&collection='+this.props.id_twitch_collection+'&time='}}
                     />
                   : null
                 }
 
                 { this.props.instagram ?
-                    <WebView
-                      javaScriptEnabled={true}
-                      scalesPageToFit
-                      domStorageEnabled={true}
-                      mediaPlaybackRequiresUserAction={false}
-                      source={{uri: 'https://www.instagram.com/p/'+this.props.id_instagram_post}}
-                    />
+                  <WebView
+                    originWhitelist={['*']}
+                    javaScriptEnabled={true}
+                    ref={this.props.id_instagram_post}
+                    onShouldStartLoadWithRequest = {(event) => {
+                        if (event.url !== 'https://www.instagram.com/p/'+this.props.id_instagram_post+'/embed/captioned/') {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }}
+                    source={{uri: 'https://www.instagram.com/p/'+this.props.id_instagram_post+'/embed/captioned/'}}
+                  />
                   : null
                 }
 
